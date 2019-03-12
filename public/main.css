@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Lora');
+
+
+/*basics*/
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Helvetica', 'Arial', 'sans-serif';
+    height: 100%;
+    font-size: 1.2em;
+    padding: 0px;
+    margin: 0px;
+}
+
+h1,h2,h3{
+    font-family: 'Lora';
+    margin: 0;
+}
+
+
+
+/*Header*/
+header{
+    background-color: #0B3954;
+    color: #BFD7EA;
+    width: 100%;
+    text-align: right;
+    padding: 5% 0%;
+}
+header a{
+    color: #BFD7EA;
+    text-decoration: none;
+
+}
+h1{
+    padding: 5%;
+}
+
+hr{
+    color: #BFD7EA;
+    width: 90%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+}
+
+nav {
+    padding: 10px;
+    padding-right: 5%;
+
+}
+
+nav a:link{
+    color: #BFD7EA;
+}
+nav a:hover{
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+
+/*body*/
+
+main{
+    background-color: #BFD7EA;
+    padding-top: 5%;
+}
+.login{
+    height: 100%;
+}
+
+
+/*body articles*/
+article{
+    position: relative;
+    margin: 20px 20%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 3px 3px #999999;
+}
+.comment{
+    position: relative;
+    margin: 15px 15px 15px 30px;
+    background-color: #BFD7EA;
+    padding: 10px;
+    box-shadow: 3px 3px #999999;
+}
+.date{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: .75em;
+    color: darkgrey;
+    padding: 5px;
+}
+
+textarea{
+    display: block;
+    width: 60%;
+    height: 80px;
+    margin: auto;
+    font-family: 'Helvetica', 'Arial', 'sans-serif';
+
+}
+textarea.work{
+    width: 90%;
+    height: 50px;
+    margin: 15px 15px 15px 30px;
+}
+.workBtn{
+    margin-left: 5%;
+}
+
+#create{
+    margin-left: 20%;
+}
+input[type="submit"]{
+    margin-top: 10px;
+    background-color: #0B3954;
+    border: none;
+    color: #BFD7EA;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: .75em;
+}
+
+.wrapper{
+    width: 200px;
+    margin: auto;
+}
+

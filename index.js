@@ -18,7 +18,7 @@ express()
 
 function social(req,res){
 
-    var sql = 'SELECT p.id, p.content, p.date, a.display_name, c.content, c.date FROM post AS p JOIN author AS a ON p.author_id = a.id JOIN comment AS c ON c.post_id = p.id ORDER BY p.date DESC';
+    var sql = 'SELECT p.id, p.content, p.date, a.display_name FROM post AS p JOIN author AS a ON p.author_id = a.id ORDER BY p.date DESC';
 
     pool.query(sql, function(err, result) {
         // If an error occurred...

@@ -5,7 +5,14 @@ $(document).ready(function(){
             contentType: 'application/json',
             success: function(data) {
                 console.log(data);
-                $('#response').html(data[1].id);
+                var content;
+                $.each(data, function(index,item) {
+                    content =
+                        '<article> <h2>' + item.display_name + '</h2> <p>' + item.content + '</p><div class="date">'+ item.date + ' </div>';
+
+                    $('#response').append(content);
+
+                });
             }
 
         })
