@@ -13,8 +13,6 @@ express()
 
 function mailCalc(req, res){
 
-    console.log("got here");
-
     var type = req.query.type;
     var weight = req.query.weight;
 
@@ -50,7 +48,6 @@ function mailCalc(req, res){
             typeName = "First-Class Package Service --Retail";
             break;
     }
-    console.log(result);
 
     const params = {rate: result, weight: weight, type: typeName};
 
