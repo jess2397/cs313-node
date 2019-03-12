@@ -1,6 +1,10 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+require('dotenv').config();
+const {Pool} = require('pg');
+const connectionString = process.env.DATABASE_URL;
+const pool = new Pool({connectionString: connectionString});
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
@@ -8,7 +12,48 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/getRate', mailCalc)
+  .get('/social', social)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
+function social(req,res){
+
+    var sql = 'SELECT p.id, p.content, p.date, a.display_name, c.content, c.date FROM post AS p JOIN author AS a ON p.author_id = a.id JOIN comment AS c ON c.post_id = p.id ORDER BY p.date DESC';
+
+    pool.query(sql, function(err, result) {
+        // If an error occurred...
+        if (err) {
+            console.log("Error in query: ")
+            console.log(err);
+        }
+
+        // Log this to the console for debugging purposes.
+        console.log("Back from DB with result:");
+        console.log(result.rows);
+
+        res.send(result.rows);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function mailCalc(req, res){
