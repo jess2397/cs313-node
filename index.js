@@ -5,14 +5,19 @@ require('dotenv').config();
 const {Pool} = require('pg');
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString});
+var bodyParser = require('body-parser')
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+    .use( bodyParser.json() )
+    .use(bodyParser.urlencoded({extended: true}))
+    .use(express.json())
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/getRate', mailCalc)
   .get('/social', social)
+  .post('/createPost', createPost)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
@@ -33,6 +38,20 @@ function social(req,res){
 
         res.send(result.rows);
     });
+}
+
+function createPost(req, res){
+    const text = 'INSERT INTO post(author_id, content, date) VALUES($1, $2, $3) RETURNING *';
+    const values = [req.body.userId, req.body.content, "2019-02-05 00:00:00"];
+
+    // callback
+    pool.query(text, values, (err, result) => {
+        if (err) {
+            console.log(err.stack)
+        } else {
+            res.send(result.rows);
+        }
+    })
 }
 
 

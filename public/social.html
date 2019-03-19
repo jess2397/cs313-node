@@ -16,11 +16,27 @@
 <h1>"Social Media"</h1>
 <hr>
 <nav>
-<a href="login.php">Login</a>
+<a id="login">Login</a>
 </nav>
+    <div class="loginDialog" style="display:none">
+        <h2 style="color:red; display:none;";>Username or Password incorrect</h2>
+            Username:<br/>
+            <input type="text" name="username"><br/>
+            Password:<br/>
+            <input type="text" name="pass"><br/>
+            <input type="submit" value="Login" onclick""><br>
+
+        <a href="create_user.php">Create New User</a>
+    </div>
 </header>
 <main>
-<div id="response"></div>
+    <textarea id = "newPost" name="content"></textarea>
+    <input id="create" type="submit" value="Post" onclick="createPost()">
+
+    <div id="response"></div>
+
+    <input id="displayName" type="hidden" value="Jessica">  <input id="userId" type="hidden" value="1">
+
 
 </main>
 </body>
