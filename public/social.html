@@ -16,26 +16,48 @@
 <h1>"Social Media"</h1>
 <hr>
 <nav>
+    <h3 style="display:none" id="userDisplayName"></h3>
 <a id="login">Login</a>
-</nav>
-    <div class="loginDialog" style="display:none">
-        <h2 style="color:red; display:none;";>Username or Password incorrect</h2>
-            Username:<br/>
-            <input type="text" name="username"><br/>
-            Password:<br/>
-            <input type="text" name="pass"><br/>
-            <input type="submit" value="Login" onclick""><br>
+<a id="logout" style="display:none">Logout</a>
 
-        <a href="create_user.php">Create New User</a>
+</nav>
+    <div class="loginDialog login" style="display:none">
+        <h2 id="loginProblem" style="color:red; display:none;";>Username or Password incorrect</h2>
+            Username:<br/>
+        <input type="text" id="loginUsername" name="loginUsername"><br/>
+            Password:<br/>
+        <input type="text" id="loginPassword" name="loginPassword"><br/>
+            <input type="submit" value="Login" onclick="login()"><br>
+
+        <a id="createUser">Create New User</a>
+    </div>
+    <div class="loginDialog createUser" style="display:none">
+        Username:<br/>
+        <input type="text" id="createUsername" name="createUsername"><br/>
+        Password:<br/>
+        <input type="text" id="createPassword" name="createPassword"><br/>
+        Display Name:<br/>
+        <input type="text" id="createDisplay" name="createDisplay"><br/>
+        <input type="submit" value="Create" onclick="createUser()"><br>
     </div>
 </header>
 <main>
+    <div class="profile" style="display: none;">
+        <h3 class="displayName"></h3>
+    <img src="">
+        <p class="desc"></p>
+        <a id="profileEdit">Edit</a>
+    </div>
+
+    <form class="createPost" style="display:none">
     <textarea id = "newPost" name="content"></textarea>
     <input id="create" type="submit" value="Post" onclick="createPost()">
+    </form>
 
     <div id="response"></div>
 
-    <input id="displayName" type="hidden" value="Jessica">  <input id="userId" type="hidden" value="1">
+
+    <input id="userId" type="hidden" value="1">
 
 
 </main>

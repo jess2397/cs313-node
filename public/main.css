@@ -54,10 +54,10 @@ nav {
 
 }
 
-nav a:link{
+a:link{
     color: #BFD7EA;
 }
-nav a:hover{
+a:hover{
     text-decoration: underline;
     color: #ffffff;
 }
@@ -140,5 +140,10 @@ input[type="submit"]{
 .wrapper{
     width: 200px;
     margin: auto;
+}
+
+.profile{
+    background: #0B3954;
+    margin: 20px 20%;
 }
 
