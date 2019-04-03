@@ -135,6 +135,7 @@ function updateUser(){
             
          $("#profileImg").attr("src", image);
             $(".desc").html(desc);
+            $(".displayName").html(displayName);
             
             $(".profile").toggle();
         $(".profileEdit").toggle();
