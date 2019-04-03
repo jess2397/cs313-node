@@ -26,6 +26,7 @@ express()
   .post('/login', controller.login)
     .post('/logout', controller.logout)
     .post('/createUser', controller.createUser)
+.post('/updateUser', controller.updateUser)
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 

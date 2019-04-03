@@ -83,6 +83,12 @@ function login(event){
             $("#userId").val(user.id);
             $(".displayName").html(user.display_name);
 
+            $("#displayEdit").val(user.display_name);
+            $("#descEdit").val(user.description);
+            $("#imgEdit").val(user.pic_file);
+            
+            $("#profileImg").attr("src", user.pic_file);
+            $(".desc").html(user.description);
 
 
             $(".createPost").toggle();
@@ -114,20 +120,24 @@ console.log("got here");
 }
 
 function updateUser(){
-    var username = $("#createUsername").val();
-    var password = $("#createPassword").val();
-    var displayName = $("#createDisplay").val();
-    var desc = $("#createDesc").val();
-    var image = $("#image").val();
+    var displayName = $("#displayEdit").val();
+    var desc = $("#descEdit").val();
+    var image = $("#imgEdit").val();
+    var userId = $("#userId").val();
 
     $.post("/updateUser",{
-        username: username,
-        password: password,
         displayName: displayName,
         desc: desc,
-        image: image
+        img: image,
+        userId: userId
     },function(data, status){
         if(status == "success"){
+            
+         $("#profileImg").attr("src", image);
+            $(".desc").html(desc);
+            
+            $(".profile").toggle();
+        $(".profileEdit").toggle();
         }
     });
 }
@@ -145,5 +155,15 @@ function setLoginDialog()
 
         $(".login").toggle();
         $(".createUser").toggle();
+    });
+    
+    $("#profileEdit").click(function(){
+
+        $(".profile").toggle();
+        $(".profileEdit").toggle();
+    });
+    $("#profileSave").click(function(){
+
+        updateUser();
     });
 }

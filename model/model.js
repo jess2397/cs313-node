@@ -56,8 +56,27 @@ function createUser(username, password, displayName, callback){
     });
 }
 
+function updateUser(desc, img, displayName, userId, callback){
+    console.log("User Id: " + userId);
+
+    const text = 'UPDATE author SET description = $1, pic_file = $2, display_name = $3 WHERE id = $4';
+    const values = [desc, img, displayName, userId];
+
+    // callback
+    pool.query(text, values, (err, result) => {
+        if (err) {
+            console.log(err.stack)
+
+            callback(err,null);
+        } else {
+
+            callback(null, result);
+        }
+    });
+}
+
 function login(username, password, callback){
-    var sql = "SELECT username, password, display_name, id FROM author WHERE username = '" + username +"'";
+    var sql = "SELECT username, password, display_name, id, description, pic_file FROM author WHERE username = '" + username +"'";
 
     pool.query(sql, function(err, result) {
         // If an error occurred...
@@ -83,5 +102,6 @@ module.exports = {
     getPosts: getPosts,
     createPost: createPost,
     login: login,
-    createUser: createUser
+    createUser: createUser,
+    updateUser: updateUser
 };

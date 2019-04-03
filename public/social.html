@@ -44,9 +44,20 @@
 <main>
     <div class="profile" style="display: none;">
         <h3 class="displayName"></h3>
-    <img src="">
+    <img id="profileImg" src=""><br/>
+        Description:
         <p class="desc"></p>
         <a id="profileEdit">Edit</a>
+    </div>
+    
+    <div class="profileEdit" style="display: none;">
+        Display Name:<br/>
+        <input type="text" id="displayEdit"><br/>
+        Image Source:<br/>
+        <input type="text" id="imgEdit"><br/>
+        Description:<br/>
+        <textarea id="descEdit"></textarea><br/>
+        <a id="profileSave">Save</a>
     </div>
 
     <form class="createPost" style="display:none">

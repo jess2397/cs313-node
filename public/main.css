@@ -142,8 +142,14 @@ input[type="submit"]{
     margin: auto;
 }
 
-.profile{
+.profile, .profileEdit{
     background: #0B3954;
     margin: 20px 20%;
+    color: #BFD7EA;
+    padding: 20px;
+}
+
+.profile img{
+    width: 100px;
 }
 

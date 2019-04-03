@@ -68,6 +68,30 @@ function createUser(req, res){
     });
 }
 
+function updateUser(req, res){
+
+    const desc = req.body.desc;
+    const img = req.body.img;
+    const displayName = req.body.displayName;
+    const userId = req.body.userId;
+
+    model.updateUser(desc, img, displayName, userId, function(err, user){
+        if(err)
+        {
+            const data = {
+                success: false,
+                message: err
+            };
+            res.status(500).json(data);
+        }else{
+            const data = {
+                success: true
+            };
+            res.json(data);
+        }
+    });
+}
+
 function login(req, res){
 
     const username = req.body.username;
@@ -114,5 +138,6 @@ module.exports = {
     createPost: createPost,
     login: login,
     logout: logout,
-    createUser: createUser
+    createUser: createUser,
+    updateUser: updateUser
 };
